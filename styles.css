@@ -15,7 +15,6 @@ body {
 
 /* Start Styling */
 .container {
-  border: 3px solid red;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -44,7 +43,6 @@ body {
 }
 
 .buttons {
-  border: 3px solid orange;
   padding: 0.5rem;
   grid-area: buttons;
   display: grid;
@@ -124,4 +122,28 @@ body {
 
 #equal {
   grid-area: equal;
+}
+
+.operators {
+  color: yellow;
+  background-color: transparent;
+  border: 3px solid yellow;
+}
+
+.numbers {
+  background-color: transparent;
+  color: white;
+  border: 3px solid white;
+}
+
+.controls {
+  background-color: transparent;
+  color: #880808;
+  border: 3px solid #880808;
+}
+
+#equal {
+  color: green;
+  background-color: transparent;
+  border: 3px solid green;
 }

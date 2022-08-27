@@ -1,0 +1,127 @@
+/* General Config */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Share Tech Mono", monospace;
+  background-color: black;
+  color: white;
+}
+
+/* Start Styling */
+.container {
+  border: 3px solid red;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 50%;
+  height: 60%;
+  border: 3px solid blue;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.5rem;
+  grid-template-areas:
+    "display display display display display"
+    "buttons buttons buttons buttons buttons"
+    "buttons buttons buttons buttons buttons";
+}
+
+.display {
+  border: 3px solid white;
+  grid-area: display;
+  padding: 0.5rem;
+}
+
+.buttons {
+  border: 3px solid orange;
+  padding: 0.5rem;
+  grid-area: buttons;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "divide seven eight nine del"
+    "multiply four five six clear"
+    "subtract one two three equal"
+    "add zero zero zero equal";
+}
+
+.buttons #add {
+  grid-area: add;
+}
+
+#subtract {
+  grid-area: subtract;
+}
+
+#multiply {
+  grid-area: multiply;
+}
+
+#divide {
+  grid-area: divide;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+
+#four {
+  grid-area: four;
+}
+
+#five {
+  grid-area: five;
+}
+
+#six {
+  grid-area: six;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#del {
+  grid-area: del;
+}
+
+#clear {
+  grid-area: clear;
+}
+
+#equal {
+  grid-area: equal;
+}

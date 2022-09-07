@@ -40,6 +40,10 @@ body {
   border: 3px solid white;
   grid-area: display;
   padding: 0.5rem;
+  display: grid;
+  font-size: x-large;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .buttons {

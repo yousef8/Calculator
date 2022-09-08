@@ -54,10 +54,18 @@ body {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
-    "divide seven eight nine del"
-    "multiply four five six clear"
-    "subtract one two three equal"
-    "add zero zero zero equal";
+    "operators numbers numbers numbers del"
+    "operators numbers numbers numbers clear"
+    "operators numbers numbers numbers equal"
+    "operators numbers numbers numbers equal";
+}
+
+.buttons > .operators {
+  grid-area: operators;
+}
+
+.buttons > .numbers {
+  grid-area: numbers;
 }
 
 .buttons #add {
@@ -129,12 +137,35 @@ body {
 }
 
 .operators {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+  grid-template-areas:
+    "add"
+    "subtract"
+    "divide"
+    "multiply";
+}
+.operators button {
   color: yellow;
   background-color: transparent;
   border: 3px solid yellow;
 }
 
 .numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "seven eight nine"
+    "four five six"
+    "one two three"
+    "zero zero zero";
+  gap: 0.5rem;
+}
+
+.numbers button {
   background-color: transparent;
   color: white;
   border: 3px solid white;

@@ -112,3 +112,22 @@ operators.addEventListener("click", (event) => {
   isOutput = true;
   process.textContent = A + " " + operator;
 });
+
+// If equal clicked
+const equal = document.querySelector("#equal");
+equal.addEventListener("click", (event) => {
+  if (!A) {
+    return;
+  }
+
+  if (isOutput) {
+    return;
+  }
+  B = io.textContent;
+  process.textContent += ` ${B}`;
+  const result = operate(getOldOperator(process.textContent), +A, +B);
+  A = result;
+  B = null;
+  io.textContent = result;
+  isOutput = true;
+});

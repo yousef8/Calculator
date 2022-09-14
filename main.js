@@ -1,3 +1,11 @@
+// main variables
+let operator = "";
+let isOutput = false;
+let A = null;
+let B = null;
+const io = document.querySelector("#io");
+const process = document.querySelector("#process");
+
 function add(a, b) {
   return a + b;
 }

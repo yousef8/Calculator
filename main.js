@@ -36,3 +36,14 @@ function operate(operator, a, b) {
       return null;
   }
 }
+
+// If number clicked
+const numbers = document.querySelector(".numbers");
+numbers.addEventListener("click", (event) => {
+  const number = event.target.textContent;
+  if (isOutput) {
+    isOutput = false;
+    io.textContent = number;
+  }
+  io.textContent += number;
+});

@@ -124,6 +124,20 @@ body {
   grid-area: zero;
 }
 
+#dot {
+  grid-area: dot;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#period {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
 #del {
   grid-area: del;
 }
@@ -161,7 +175,7 @@ body {
     "seven eight nine"
     "four five six"
     "one two three"
-    "zero zero zero";
+    "zero zero dot";
   gap: 0.5rem;
 }
 

@@ -160,3 +160,14 @@ equal.addEventListener("click", (event) => {
   io.textContent = result;
   isOutput = true;
 });
+
+// If clear clicked
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", (event) => {
+  A = null;
+  B = null;
+  process.textContent = "";
+  io.textContent = "";
+  operator = "";
+  isOutput = false;
+});

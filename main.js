@@ -1,6 +1,7 @@
 // main variables
 let operator = "";
 let isOutput = false;
+let isDotLocked = false;
 let A = null;
 let B = null;
 const io = document.querySelector("#io");
@@ -107,12 +108,14 @@ operators.addEventListener("click", (event) => {
   if (!A) {
     A = io.textContent;
     isOutput = true;
+    isDotLocked = false;
     console.log(A);
     process.textContent = A + " " + operator;
     return;
   }
 
   B = io.textContent;
+  isDotLocked = false;
   const result = operate(getOldOperator(process.textContent), +A, +B);
 
   if (result === Infinity) {
@@ -143,6 +146,7 @@ equal.addEventListener("click", (event) => {
     return;
   }
   B = io.textContent;
+  isDotLocked = false;
   process.textContent += ` ${B}`;
   const result = operate(getOldOperator(process.textContent), +A, +B);
   if (result === Infinity) {
@@ -179,4 +183,19 @@ del.addEventListener("click", (event) => {
     return;
   }
   io.textContent = io.textContent.slice(0, io.textContent.length - 1);
+});
+
+// If dot clicked
+const dot = document.querySelector("#dot");
+dot.addEventListener("click", (event) => {
+  if (isOutput) {
+    return;
+  }
+
+  if (isDotLocked) {
+    return;
+  }
+
+  io.textContent += ".";
+  isDotLocked = true;
 });

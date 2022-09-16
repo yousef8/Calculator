@@ -115,7 +115,7 @@ operators.addEventListener("click", (event) => {
   B = io.textContent;
   const result = operate(getOldOperator(process.textContent), +A, +B);
 
-  if (typeof result === "string") {
+  if (result === Infinity) {
     console.log("result is string");
     io.textContent = result;
     A = null;
@@ -145,7 +145,7 @@ equal.addEventListener("click", (event) => {
   B = io.textContent;
   process.textContent += ` ${B}`;
   const result = operate(getOldOperator(process.textContent), +A, +B);
-  if (typeof result === "string") {
+  if (result === Infinity) {
     console.log("result is string");
     io.textContent = result;
     A = null;

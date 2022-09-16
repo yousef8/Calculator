@@ -25,19 +25,32 @@ function divide(a, b) {
   return a / b;
 }
 
+function roundDecimal(num) {
+  return Math.round(num * 1000) / 1000;
+}
+
 function operate(operator, a, b) {
+  let result = 0;
   switch (operator) {
     case "+":
-      return add(a, b);
+      result = add(a, b);
+      break;
     case "-":
-      return subtract(a, b);
+      result = subtract(a, b);
+      break;
     case "×":
-      return multiply(a, b);
+      result = multiply(a, b);
+      break;
     case "÷":
-      return divide(a, b);
+      result = divide(a, b);
+      break;
     default:
       return null;
   }
+  if (Number.isInteger(result)) {
+    return result;
+  }
+  return roundDecimal(result);
 }
 
 console.log(typeof operate("÷", 3, 0));

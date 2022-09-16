@@ -54,18 +54,19 @@ function operate(operator, a, b) {
   return roundDecimal(result);
 }
 
-console.log(typeof operate("÷", 3, 0));
-
 // If number clicked
 const numbers = document.querySelector(".numbers");
-numbers.addEventListener("click", (event) => {
-  const number = event.target.textContent;
+function clickNumber(number) {
   if (isOutput) {
     isOutput = false;
     io.textContent = number;
     return;
   }
   io.textContent += number;
+}
+
+numbers.addEventListener("click", (e) => {
+  clickNumber(e.target.textContent);
 });
 
 function getOldOperator(text) {
@@ -78,19 +79,22 @@ function convertOperatorToSign(text) {
       return "+";
     case "subtract":
       return "-";
+    case "*":
     case "multiply":
       return "×";
+    case "/":
     case "divide":
       return "÷";
     default:
-      return undefined;
+      return text;
   }
 }
 
 // If operator clicked
 const operators = document.querySelector(".operators");
-operators.addEventListener("click", (event) => {
-  operator = convertOperatorToSign(event.target.closest("button").id);
+
+function clickOperator(operator) {
+  operator = convertOperatorToSign(operator);
   if (!io.textContent || io.textContent === "Infinity") {
     console.log("button");
     if (A) {
@@ -133,11 +137,15 @@ operators.addEventListener("click", (event) => {
   io.textContent = result;
   isOutput = true;
   process.textContent = A + " " + operator;
+}
+
+operators.addEventListener("click", (e) => {
+  clickOperator(e.target.closest("button").id);
 });
 
 // If equal clicked
 const equal = document.querySelector("#equal");
-equal.addEventListener("click", (event) => {
+function clickEqual() {
   if (!A) {
     return;
   }
@@ -163,7 +171,8 @@ equal.addEventListener("click", (event) => {
   B = null;
   io.textContent = result;
   isOutput = true;
-});
+}
+equal.addEventListener("click", clickEqual);
 
 // If clear clicked
 const clear = document.querySelector("#clear");
@@ -177,17 +186,17 @@ clear.addEventListener("click", (event) => {
 });
 
 // If delete clicked
-const del = document.querySelector("#del");
-del.addEventListener("click", (event) => {
+function clickDelete() {
   if (isOutput) {
     return;
   }
   io.textContent = io.textContent.slice(0, io.textContent.length - 1);
-});
+}
+const del = document.querySelector("#del");
+del.addEventListener("click", clickDelete);
 
 // If dot clicked
-const dot = document.querySelector("#dot");
-dot.addEventListener("click", (event) => {
+function clickDot() {
   if (isOutput) {
     return;
   }
@@ -198,4 +207,33 @@ dot.addEventListener("click", (event) => {
 
   io.textContent += ".";
   isDotLocked = true;
+}
+const dot = document.querySelector("#dot");
+dot.addEventListener("click", clickDot);
+
+// Keyboard Support
+document.addEventListener("keydown", (e) => {
+  if (+e.key >= 0) {
+    clickNumber(e.key);
+  }
+
+  if (/[+\-*\/]/.test(e.key)) {
+    clickOperator(e.key);
+  }
+
+  if (e.key === "=") {
+    clickEqual();
+  }
+
+  if (e.key === "Backspace") {
+    clickDelete();
+  }
+
+  if (e.key === ".") {
+    clickDot();
+  }
+
+  if (e.key === "Enter") {
+    clickEqual();
+  }
 });

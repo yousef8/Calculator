@@ -91,7 +91,7 @@ const operators = document.querySelector(".operators");
 operators.addEventListener("click", (event) => {
   operator = convertOperatorToSign(event.target.closest("button").id);
   if (!io.textContent || io.textContent === "Infinity") {
-    console.log("Infinity");
+    console.log("button");
     if (A) {
       process.textContent = A + " " + operator;
       return;
@@ -170,4 +170,13 @@ clear.addEventListener("click", (event) => {
   io.textContent = "";
   operator = "";
   isOutput = false;
+});
+
+// If delete clicked
+const del = document.querySelector("#del");
+del.addEventListener("click", (event) => {
+  if (isOutput) {
+    return;
+  }
+  io.textContent = io.textContent.slice(0, io.textContent.length - 1);
 });

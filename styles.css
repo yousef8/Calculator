@@ -25,6 +25,7 @@ body {
   width: 50%;
   height: 60%;
   border: 3px solid blue;
+  border-radius: 0.5rem;
   padding: 0.5rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -38,6 +39,7 @@ body {
 
 .display {
   border: 3px solid white;
+  border-radius: 0.5rem;
   grid-area: display;
   padding: 0.5rem;
   display: grid;
@@ -60,11 +62,11 @@ body {
     "operators numbers numbers numbers equal";
 }
 
-.buttons > .operators {
+.buttons>.operators {
   grid-area: operators;
 }
 
-.buttons > .numbers {
+.buttons>.numbers {
   grid-area: numbers;
 }
 
@@ -161,10 +163,16 @@ body {
     "divide"
     "multiply";
 }
+
 .operators button {
   color: yellow;
   background-color: transparent;
   border: 3px solid yellow;
+  border-radius: 0.5rem;
+}
+
+.operators button i {
+  font-size: 3rem;
 }
 
 .numbers {
@@ -180,19 +188,27 @@ body {
 }
 
 .numbers button {
+  font-size: 3rem;
   background-color: transparent;
   color: white;
   border: 3px solid white;
+  border-radius: 0.5rem;
 }
 
 .controls {
   background-color: transparent;
   color: #880808;
   border: 3px solid #880808;
+  border-radius: 0.5rem;
 }
 
 #equal {
   color: green;
   background-color: transparent;
   border: 3px solid green;
+  border-radius: 0.5rem;
+}
+
+.buttons>button {
+  font-size: 3rem;
 }

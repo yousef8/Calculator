@@ -22,6 +22,12 @@ body {
   align-items: center;
 }
 
+.container>.header {
+  padding: 1rem;
+  border: 3px solid blue;
+  border-radius: 0.5rem;
+}
+
 .calculator {
   margin-top: 3rem;
   width: 50%;
